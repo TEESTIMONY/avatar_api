@@ -7,6 +7,7 @@ defusedxml==0.7.1
 Django==5.2.3
 django-cors-headers==4.7.0
 djangorestframework==3.16.0
+djangorestframework-authtoken==3.16.0
 multiavatar==1.0.3
 pillow==11.2.1
 pycparser==2.22
