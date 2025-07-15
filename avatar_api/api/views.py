@@ -24,7 +24,6 @@ class GenerateAvatarView(generics.CreateAPIView):
         seed_text = serializer.validated_data['seed_text']
         svg_data=multiavatar(seed_text,False,None)
         serializer.save(svg_data=svg_data)
-        cairosvg.svg2png(bytestring=svg_data.encode('utf-8'), write_to=f"{seed_text}.png")
 
     def create(self,request,*args,**kwargs):
         response = super().create(request, *args,**kwargs)
