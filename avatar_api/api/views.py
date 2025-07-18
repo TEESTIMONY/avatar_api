@@ -110,3 +110,19 @@ class AvatarReactionView(APIView):
         serializer = ReactionSerializer(reaction)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class UserAvatarListView(generics.ListAPIView):
+    serializer_class = AvatarSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Avatar.objects.filter(user=self.request.user)
+
+
+class UserAvatarDeleteView(generics.DestroyAPIView):
+    serializer_class = AvatarSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Avatar.objects.filter(user=self.request.user)
+
